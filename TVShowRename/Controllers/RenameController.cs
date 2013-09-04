@@ -186,7 +186,7 @@ namespace TVShowRename
         {
             tvDbHandler = new TVDB();  // TVDB will handle the TV show query
             tvDbHandler.parentErrorCaller = formErrorCaller;
-            Dictionary<String, EpisodeResultItem> episodeResults = tvDbHandler.getEpisodesFromShowID(fvShowID); // Get all episodes for the given show ID
+            Dictionary<String, EpisodeResultItem> episodeResults = tvDbHandler.getEpisodesFromShowID(fvShowID).ToDictionary(x=>x.SeasonNumber.ToString()+x.EpisodeNumber.ToString(),x=>x); // Get all episodes for the given show ID
 
             if (episodeResults.Count > 0)
             {
